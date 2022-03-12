@@ -11,37 +11,58 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Aesome App'),
-        ),
-        body: Container(
+      appBar: AppBar(
+        title: Text('Aesome App'),
+      ),
+      body: Center(
+        child: Container(
           color: Colors.green,
-          width: 500,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                height: 100,
-                width: 100,
-                alignment: Alignment.center,
-                color: Colors.yellow,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                alignment: Alignment.center,
-                color: Colors.black,
-              ),
-              Container(
-                padding: const EdgeInsets.all(8),
-                height: 100,
-                width: 100,
-                alignment: Alignment.center,
-                color: Colors.blue,
-              ),
-            ],
-          ),
-        ));
+          width: 100,
+          height: 100,
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.all(0),
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+                accountName: Text('Nilam Roychoudhury'),
+                accountEmail: Text('g.com'),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://img.etimg.com/thumb/msid-51765842,width-300,imgsize-59606,resizemode-4/whatever-promised-needs-to-be-met-m-s-dhoni-on-amrapali-issue.jpg'),
+                )),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('nilam'),
+              subtitle: Text('dev'),
+              trailing: Icon(Icons.edit),
+              onLongPress: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('nilam'),
+              subtitle: Text('dev'),
+              trailing: Icon(Icons.edit),
+              onLongPress: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('nilam'),
+              subtitle: Text('dev'),
+              trailing: Icon(Icons.edit),
+              onLongPress: () {},
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.edit,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
   }
 }
