@@ -17,11 +17,26 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(8),
-          color: Colors.blue,
+
           height: 100,
           width: 100,
           alignment: Alignment.center,
-          child: Text('i am a box'),
+          child: Text(
+            'i am a box',
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          //
+          decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(colors: [Colors.blue, Colors.black38]),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 10,
+                )
+              ]),
         ),
       ),
     );
