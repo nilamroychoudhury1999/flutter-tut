@@ -7,7 +7,14 @@ void main() {
   ));
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var textP = "change my name";
+  TextEditingController _nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,12 +22,42 @@ class HomePage extends StatelessWidget {
         title: Text('Aesome App'),
       ),
       body: Center(
-        child: Container(
-          color: Colors.green,
-          width: 100,
-          height: 100,
+          child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Card(
+            child: Column(
+              children: <Widget>[
+                Image.network(
+                  'https://th.bing.com/th/id/OIP.wZ3VZOigrz2TJmCIurX_-QHaFj?pid=ImgDet&rs=1',
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  textP,
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: TextField(
+                    controller: _nameController,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "enter your name",
+                        labelText: "name"),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
-      ),
+      )),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.all(0),
@@ -30,7 +67,7 @@ class HomePage extends StatelessWidget {
                 accountEmail: Text('g.com'),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage(
-                      'https://img.etimg.com/thumb/msid-51765842,width-300,imgsize-59606,resizemode-4/whatever-promised-needs-to-be-met-m-s-dhoni-on-amrapali-issue.jpg'),
+                      'https://cdn.dnaindia.com/sites/default/files/styles/full/public/2017/02/17/549266-ms-dhoni-1pti.jpg'),
                 )),
             ListTile(
               leading: Icon(Icons.person),
@@ -57,10 +94,11 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(
-          Icons.edit,
-        ),
+        onPressed: () {
+          textP = _nameController.text;
+          setState(() {});
+        },
+        child: Icon(Icons.send),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
