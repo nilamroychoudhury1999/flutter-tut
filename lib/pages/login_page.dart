@@ -26,10 +26,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Stack(
           fit: StackFit.expand,
           children: <Widget>[
-            Image.network(
-              'https://th.bing.com/th/id/OIP.14g6kres7fQjGQa6q7rfcAHaEg?pid=ImgDet&w=1485&h=903&rs=1',
-              fit: BoxFit.cover,
-            ),
+            Image.asset(''),
             SingleChildScrollView(
                 child: Form(
               key: formkey,
